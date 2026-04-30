@@ -14,7 +14,7 @@ else if (aiSource.includes("claude.ai")) {
     aiSource = "claude";
 }
 
-else if (aisource.includes("copilot.com")) {
+else if (aiSource.includes("copilot.com")) {
     aiSource = "copilot";
 }
 
