@@ -1,40 +1,40 @@
-const hostname = location.hostname;
-const time = new Date();
+const hostName = location.hostname;
 const param = new URLSearchParams(window.location.search);
-let aisource = param.get("utm_source");
+const pathName = location.pathname;
+let aiSource = param.get("utm_source");
 
-if (aisource == null) {
-    aisource = document.referrer;
+if (aiSource == null) {
+    aiSource = document.referrer;
 }
 
-if (aisource.includes("chatgpt.com")) {
-    aisource = "chatgpt";
+if (aiSource.includes("chatgpt.com")) {
+    aiSource = "chatgpt";
 }
-else if (aisource.includes("claude.ai")) {
-    aisource = "claude";
+else if (aiSource.includes("claude.ai")) {
+    aiSource = "claude";
 }
 
 else if (aisource.includes("copilot.com")) {
-    aisource = "copilot";
+    aiSource = "copilot";
 }
 
-else if (aisource.includes("deepseek.com")) {
-    aisource = "deepseek";
+else if (aiSource.includes("deepseek.com")) {
+    aiSource = "deepseek";
 }
 
-else if (aisource.includes("gemini.com")) {
-    aisource = "gemini";
+else if (aiSource.includes("gemini.com")) {
+    aiSource = "gemini";
 }
 else {
-    aisource= null;
+    aiSource= null;
 }
 
 
-if (aisource!=null) {
+if (aiSource!=null) {
     const analytics = {
-        "hostname" : hostname,
-        "time" : time,
-        "aisource" : aisource,
+        "hostName" : hostName,
+        "aiSource" : aiSource,
+        "pathName" : pathName
         };
     const jsonString = JSON.stringify(analytics);
     console.log(jsonString);
