@@ -25,19 +25,17 @@ else if (aisource.includes("deepseek.com")) {
 else if (aisource.includes("gemini.com")) {
     aisource = "gemini";
 }
-
 else {
     aisource= null;
 }
 
 
-const analytics = {
-    "hostname" : hostname,
-    "time" : time,
-    "aisource" : aisource,
-};
-
-if (aisource==null) {
+if (aisource!=null) {
+    const analytics = {
+        "hostname" : hostname,
+        "time" : time,
+        "aisource" : aisource,
+        };
     const jsonString = JSON.stringify(analytics);
     console.log(jsonString);
     fetch("https://abcd.com", {
