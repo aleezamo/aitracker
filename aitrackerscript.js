@@ -4,7 +4,7 @@ const pathName = location.pathname;
 let aiSource = param.get("utm_source");
 
 if (aiSource == null) {
-    aiSource = document.referrer;
+    aiSource = document.referrer || "";
 }
 
 if (aiSource.includes("chatgpt.com")) {
@@ -49,11 +49,11 @@ if (aiSource!=null) {
         return response.json();
     })
     .then(data => {
-        console.long("Data:", data);
+        console.log("Data:", data);
     })
     .catch(error => {
         console.error("Error: ", error);
     });
 }
-console.log(analytics);
+
 
