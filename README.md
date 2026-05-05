@@ -2,6 +2,16 @@
 
 aitracker is a lightweight JavaScript snippet that detects when users land on your website by clicking links cited in AI-generated responses (e.g., ChatGPT, AI search tools, etc.).
 
+## Why aitracker?
+
+Unlike traditional analytics platforms (e.g., Google Analytics), aitracker is designed with a focused and privacy-friendly approach.
+
+### Privacy-first
+- Does not track IP addresses
+- Does not use cookies
+- Does not fingerprint users
+- Collects only minimal data required for AI referral detection
+
 ## Problem it solves
 As AI tools increasingly cite external websites in their responses, developers have little visibility into when those citations actually drive user traffic.
 
