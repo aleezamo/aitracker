@@ -5,6 +5,7 @@ let aiSource = param.get("utm_source");
 
 const script = document.currentScript;
 const apiUrl = script.dataset.apiUrl;
+console.log(apiUrl);
 
 if (apiUrl==null) {
     console.error("Error: data-api-url missing");
