@@ -3,6 +3,13 @@ const param = new URLSearchParams(window.location.search);
 const pathName = location.pathname;
 let aiSource = param.get("utm_source");
 
+const script = document.currentScript;
+const apiUrl = script.dataset.apiUrl;
+
+if (apiUrl==null) {
+    console.error("Error: data-api-url missing");
+}
+
 if (aiSource == null) {
     aiSource = document.referrer || "";
 }
@@ -30,7 +37,7 @@ else {
 }
 
 
-if (aiSource!=null) {
+if (aiSource!=null) {  
     const analytics = {
         "hostName" : hostName,
         "aiSource" : aiSource,
@@ -38,7 +45,7 @@ if (aiSource!=null) {
         };
     const jsonString = JSON.stringify(analytics);
     console.log(jsonString);
-    fetch("https://abcd.com", {
+    fetch(apiUrl, {
         method: "POST",
         headers: {"Content-Type" : "application/json"},
         body: jsonString,
