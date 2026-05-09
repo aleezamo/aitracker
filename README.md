@@ -25,9 +25,12 @@ aitracker helps you track visits that originate from AI-cited links, giving you 
 
 ## How to include the script
 
-Add the following script tag inside the `<head>` of your HTML:
+Add the following script tag inside the `<head>` of your HTML and change the `data-api-url` value to the endpoint where you will host my api service:
 
-`<script src="https://your-domain.com/aitracker.js"></script>`
+`<script
+      src="https://cdn.jsdelivr.net/gh/aleezamo/aitracker/aitrackerscript.js"
+      data-api-url="https://api.example.com/track">
+</script>`
 
 Once included, the script will automatically send tracking events when a user lands on your page via an AI-generated reference.
 
