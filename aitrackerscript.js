@@ -1,7 +1,7 @@
 const hostName = location.hostname;
 const param = new URLSearchParams(window.location.search);
 const pathName = location.pathname;
-const aiSource = param.get("utm_source");
+let aiSource = param.get("utm_source");
 
 const script = document.currentScript;
 const apiUrl = script.dataset.apiUrl;
@@ -35,33 +35,34 @@ else if(aiSource.includes("perplexity.ai") {
     aiSource = "perplexity");
 }
 else {
-    aiSource= null;
+    aiSource = null;
 }
 
-if (aiSource!=null) {  
-    const analytics = {
-        "hostName" : hostName,
-        "aiSource" : aiSource,
-        "pathName" : pathName
-        };
-    const jsonString = JSON.stringify(analytics);
-    console.log(jsonString);
-    fetch(apiUrl, {
-        method: "POST",
-        headers: {"Content-Type" : "application/json"},
-        body: jsonString,
-        keepalive: true
-    })
-    .then(response => {
-        console.log("Response status:", response.status);
-        return response.json();
-    })
-    .then(data => {
-        console.log("Data:", data);
-    })
-    .catch(error => {
-        console.error("Error: ", error);
-    });
+if (aiSource = null) {
+    console.log("no ai source detected");
+    return;
 }
 
-
+const analytics = {
+    "hostName" : hostName,
+    "aiSource" : aiSource,
+    "pathName" : pathName
+};
+const jsonString = JSON.stringify(analytics);
+console.log(jsonString);
+fetch(apiUrl, {
+    method: "POST",
+    headers: {"Content-Type" : "application/json"},
+    body: jsonString,
+    keepalive: true
+})
+.then(response => {
+    console.log("Response status:", response.status);
+    return response.json();
+})
+.then(data => {
+    console.log("Data:", data);
+})
+.catch(error => {
+    console.error("Error: ", error);
+});
