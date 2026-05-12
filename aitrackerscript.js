@@ -2,6 +2,7 @@
     const hostName = location.hostname;
     const param = new URLSearchParams(window.location.search);
     const pathName = location.pathname;
+    const pageTitle = document.title;
     let aiSource = param.get("utm_source");
 
     const script = document.currentScript;
@@ -10,6 +11,11 @@
 
     if (apiUrl == null) {
         console.error("Error: data-api-url missing");
+        return
+    }
+
+    if (hostName=="") {
+        console.error("Error: no host detected");
         return
     }
 
@@ -48,6 +54,7 @@
         "hostName" : hostName,
         "aiSource" : aiSource,
         "pathName" : pathName
+        "pageTitle" : pageTitle
     };
     const jsonString = JSON.stringify(analytics);
     console.log(jsonString);
