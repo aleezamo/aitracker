@@ -53,7 +53,7 @@
     const analytics = {
         "hostName" : hostName,
         "aiSource" : aiSource,
-        "pathName" : pathName
+        "pathName" : pathName,
         "pageTitle" : pageTitle
     };
     const jsonString = JSON.stringify(analytics);
