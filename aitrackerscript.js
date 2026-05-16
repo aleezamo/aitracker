@@ -6,11 +6,17 @@
     let aiSource = param.get("utm_source");
 
     const script = document.currentScript;
+    const siteID = script.dataset.siteID;
     const apiUrl = script.dataset.apiUrl;
     console.log(apiUrl);
 
+    if (siteID == null) {
+        console.error("Error: data-site-id is missing");
+        return
+    }
+
     if (apiUrl == null) {
-        console.error("Error: data-api-url missing");
+        console.error("Error: data-api-url is missing");
         return
     }
 
@@ -54,7 +60,8 @@
         "hostName" : hostName,
         "aiSource" : aiSource,
         "pathName" : pathName,
-        "pageTitle" : pageTitle
+        "pageTitle" : pageTitle,
+        "siteID" : siteID
     };
     const jsonString = JSON.stringify(analytics);
     console.log(jsonString);
