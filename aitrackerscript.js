@@ -6,7 +6,7 @@
     let aiSource = param.get("utm_source");
 
     const script = document.currentScript;
-    const siteID = script.dataset.siteID;
+    const siteID = script.dataset.siteId;
     const apiUrl = script.dataset.apiUrl;
     console.log(apiUrl);
 
